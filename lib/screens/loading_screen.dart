@@ -8,6 +8,7 @@ import 'package:clima/screens/location_screen.dart';
 class LoadingScreen extends StatefulWidget {
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
+  // here loadingscreen and loadingscreenstate are seperate classes.
 }
 
 Location location = Location();
