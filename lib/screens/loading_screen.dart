@@ -1,4 +1,5 @@
 import 'package:clima/screens/location_screen.dart';
+import 'package:clima/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -34,12 +35,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     await location.getCurrentLocation();
     // latitude = location.Latitude;
     // longitude = location.Longitude;
+    var weatherdata = await WeatherModel().getLocationWeather();
 
     print(location.Latitude);
     print(location.Longitude);
-    NetworkHelper networkHelper = NetworkHelper(
-        'http://api.openweathermap.org/data/2.5/weather?lat=${location.Latitude}&lon=${location.Longitude}&appid=ceccd92fce7afe5b9cc84b959f919696&units=metric');
-    var weatherdata = await networkHelper.getData();
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(
